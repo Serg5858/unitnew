@@ -7,43 +7,46 @@ import static org.testng.Assert.*;
 public class CashbackHackServiceTest {
     @Test
     public void adviceToBuyMore() {
-        CashbackHackService cashbackHackService = new CashbackHackService();
+        CashbackHackService service = new CashbackHackService();
         int amount = 900;
         int expected = 100;
-        int actual = cashbackHackService.remain(900);
-        Assert.assertEquals(100,100);
-
+        int actual = service.remain(900);
+        assertEquals(expected, actual);
     }
+
     @Test
-    public void adviceBuyMoreBeforeMin(){
-        CashbackHackService cashbackHackService = new CashbackHackService();
+    public void adviceBuyMoreBeforeMin() {
+        CashbackHackService service = new CashbackHackService();
         int amount = 800;
         int expected = 200;
-        int actual = cashbackHackService.remain(800);
-        Assert.assertEquals(200,200);
+        int actual = service.remain(800);
+        assertEquals(expected, actual );
     }
+
     @Test
-    public void buyNotEqualsBoundary(){
-        CashbackHackService cashbackHackService = new CashbackHackService();
+    public void buyNotEqualsBoundary() {
+        CashbackHackService service = new CashbackHackService();
         int amount = 1750;
-        int expected = 100;
-        int actual = cashbackHackService.remain(1750);
-        Assert.assertEquals(250,250);
+        int expected = 250;
+        int actual = service.remain(1750);
+        assertEquals(expected, actual);
     }
+
     @Test
-    public void buyEqualsBoundary(){
-        CashbackHackService cashbackHackService = new CashbackHackService();
+    public void buyEqualsBoundary() {
+        CashbackHackService service = new CashbackHackService();
         int amount = 3000;
         int expected = 0;
-        int actual = cashbackHackService.remain(3000);
-        Assert.assertEquals(0,0);
+        int actual = service.remain(3000);
+        assertEquals(expected,actual);
     }
+
     @Test
-    public void buyThousand(){
-        CashbackHackService cashbackHackService = new CashbackHackService();
+    public void buyThousand() {
+        CashbackHackService service = new CashbackHackService();
         int amount = 1000;
         int expected = 0;
-        int actual = cashbackHackService.remain(1000);
-        Assert.assertEquals(0,0);
+        int actual = service.remain(1000);
+        assertEquals(expected, actual );
     }
 }
